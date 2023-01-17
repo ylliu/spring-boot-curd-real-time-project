@@ -1,10 +1,10 @@
-package com.ylliu.springboot.curddemo.dao;
+package com.ylliu.springboot.curddemo.service;
 
 import com.ylliu.springboot.curddemo.entity.Employee;
 
 import java.util.List;
 
-public interface EmployeeDAO {
+public interface EmployeeService {
     public List<Employee> findAll();
 
     public Employee findById(int theId);
@@ -14,3 +14,4 @@ public interface EmployeeDAO {
     public void deleteById(int theId);
 
 }
+

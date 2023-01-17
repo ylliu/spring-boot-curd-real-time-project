@@ -20,8 +20,22 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
     }
 
     @Override
-    @Transactional
     public List<Employee> findAll() {
         return entityManager.unwrap(Session.class).createQuery("from Employee", Employee.class).getResultList();
+    }
+
+    @Override
+    public Employee findById(int theId) {
+        return entityManager.unwrap(Session.class).get(Employee.class, theId);
+    }
+
+    @Override
+    public void save(Employee theEmployee) {
+        entityManager.unwrap(Session.class).merge(theEmployee);
+    }
+
+    @Override
+    public void deleteById(int theId) {
+        entityManager.unwrap(Session.class).remove(findById(theId));
     }
 }
