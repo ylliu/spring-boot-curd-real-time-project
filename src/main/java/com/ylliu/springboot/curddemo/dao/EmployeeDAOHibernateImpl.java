@@ -31,11 +31,11 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
     @Override
     public void save(Employee theEmployee) {
-        entityManager.unwrap(Session.class).merge(theEmployee);
+        entityManager.unwrap(Session.class).saveOrUpdate(theEmployee);
     }
 
     @Override
     public void deleteById(int theId) {
-        entityManager.unwrap(Session.class).remove(findById(theId));
+        entityManager.unwrap(Session.class).delete(findById(theId));
     }
 }
